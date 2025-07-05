@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Sumukha L Raju</title>
+  <link rel="stylesheet" href="contactstyle.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body class="bgwrap">
+  <div class="contact-container">
+    <header class="contact-header">
+      <h1 class="contact-title">Contact Me</h1>
+      <p class="contact-subtitle">I'd love to hear from you! Feel free to message me using the form below or via my social links.</p>
+    </header>
+
+    <section class="contact-section">
+      <div class="contact-email">
+        <h2 class="section-title">Email</h2>
+        <p><a href="mailto:sumukhalraju@gmail.com" class="email-link">sumukhalraju@gmail.com</a></p>
+      </div>
+
+      <div class="contact-socials">
+        <h2 class="section-title">Socials</h2>
+        <div class="social-links horizontal">
+           <a href="https://github.com/" class="social-link">
+             <i class="fab fa-github"></i> GitHub
+           </a>
+           <a href="https://linkedin.com/" class="social-link">
+             <i class="fab fa-linkedin"></i> LinkedIn
+           </a>
+           <a href="https://twitter.com/thenameisaquila" class="social-link" target="_blank"">
+               <svg viewBox="0 0 24 24" aria-hidden="true" height="20" width="20" fill="currentColor" style="margin-right: 8px;">
+                <g>
+                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </g>
+               </svg>
+               Twitter
+           </a>
+         </div>
+       </div>
+
+      <div class="contact-form-section">
+        <h2 class="section-title">Send a Message</h2>
+        <form id="contact-form" class="contact-form">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" id="name" name="name" class="form-input" required />
+
+          <label for="email" class="form-label">Your Email</label>
+          <input type="email" id="email" name="_replyto" class="form-input" required />
+
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+
+          <button type="submit" class="submit-button">Send</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const response = await fetch('https://formspree.io/f/xyzabcd', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        alert('Thanks for your message! I’ll get back to you soon.');
+        form.reset();
+      } else {
+        alert('Oops! Something went wrong. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>
