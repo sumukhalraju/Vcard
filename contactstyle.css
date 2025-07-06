@@ -158,47 +158,63 @@ body::-webkit-scrollbar {
   }
 }
 
-.navbar{
-  background-color: #18191A ;
-  color:whitesmoke ;
+.navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap; /* prevent link wrap */
+  padding: 0 16px;
   height: 50px;
-  font-family: "Outfit", sans-serif;
+  width: calc(100% - 20px);
+  margin: 10px auto;
   border-radius: 16px;
-  position: relative;
-  margin: 0px 10px;
-  top: 10px;
-}
-.navbar a{
+  background-color: #18191A;
   color: whitesmoke;
-  text-decoration: none;
-  padding: 10px;
-}
-.navbar a:hover{
-  text-shadow: 0px 0px 10px whitesmoke;
-}
-.logo{
-  font-size: 20px;
-  font-weight: bold;
-  padding:0px 5px;
-  margin-right: 5px;
-  width: auto;
-  margin-top: 5px;
-  
 }
 
-.nav-links{
+
+.weblogo {
   display: flex;
   align-items: center;
-  justify-content: center;
- 
-  padding-right: 16px;
-  text-decoration: none;
-  color: whitesmoke;
-  position :absolute;
-  right: 0px;
+  gap: 10px;
+  max-width: 40%; /* 🔧 prevent it from hogging full width */
+  flex-shrink: 1;
+}
 
+
+.logo img {
+  height: 25px;
+  width: 25px;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 170px;
+  font-family: "Outfit", sans-serif;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: "Outfit", sans-serif;
+}
+
+
+.navbar a {
+  color: whitesmoke;
+  text-decoration: none;
+  padding: 8px;
+}
+
+.navbar a:hover {
+  text-shadow: 0px 0px 10px whitesmoke;
 }
 
 @media (max-width: 480px) {
@@ -210,10 +226,21 @@ body::-webkit-scrollbar {
  
 .weblogo{
   display: flex;
-  padding:0px 16px;
-  position: absolute;
+  
+ 
   left: 0px;
   align-items: center;
   justify-content: center;
   cursor: default;
 }
+
+input[type="text"],
+input[type="email"],
+textarea {
+  background-color: #2f2f2f;  /* grey background */
+  color: white;
+  
+}
+
+
+
