@@ -200,6 +200,14 @@ body::-webkit-scrollbar {
   right: 0px;
 
 }
+
+@media (max-width: 480px) {
+  .logo-text{
+    display: none;
+
+  }
+}
+ 
 .weblogo{
   display: flex;
   padding:0px 16px;
